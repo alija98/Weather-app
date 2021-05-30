@@ -2,4 +2,39 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+.main__section {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url("./assets/background_image.svg");
+  background-size: cover;
+}
+.box {
+  width: 20%;
+  border-radius: 0.5rem;
+  margin: 2rem 2rem;
+  background-color: rgba(19, 19, 97, 0.301);
+  color: white;
+}
+.box__body {
+  padding: 1rem 1.5rem;
+}
+.box__heading {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(0, 78, 180);
+  padding: 1rem 1.5rem;
+  border-radius: 0.5rem 0.5rem 0 0;
+}
+.weather__data {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 0;
 }
