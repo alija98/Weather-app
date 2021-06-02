@@ -9,39 +9,45 @@ const api = {
 };
 
 function App() {
+  const [loading, setLoading] = useState(false);
   const [cityName, setCityName] = useState("Mostar");
   const [weatherToday, setWeatherToday] = useState({});
   const [weatherForecast, setWeatherForecast] = useState({});
 
-  async function get5DayData() {
-    const response = await fetch(
+  function get5DayData() {
+    setLoading(true);
+    const response = fetch(
       `${api.base_5_day}${cityName}&units=metric&APPID=${api.key}`
     );
-    const data_5_day = await response.json();
+    const data_5_day = response.json();
     if (data_5_day) {
       setWeatherForecast(data_5_day);
     }
+    setLoading(false);
   }
 
-  async function getTodayData() {
-    const response = await fetch(
+  function getTodayData() {
+    setLoading(true);
+    const response = fetch(
       `${api.base_today}${cityName}&units=metric&APPID=${api.key}`
     );
-    const data_today = await response.json();
+    const data_today = response.json();
     if (data_today) {
       setWeatherToday(data_today);
     }
+    setLoading(false);
   }
 
   useEffect(() => {
     get5DayData();
     getTodayData();
   }, []);
-
+  if (!weatherToday) {
+    return null;
+  }
   return (
     <section className="main__section">
-      <Box data={weatherToday} />
-      <input onKeyPress={getTodayData}></input>
+      <Box weatherToday={weatherToday ? weatherToday : ""} loading={loading} />
     </section>
   );
 }
