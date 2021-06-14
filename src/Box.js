@@ -28,7 +28,7 @@ const Box = ({
       </div>
       <h2 className="city__name">{cityName}</h2>
       <div className="box__body">
-        <h2>{temperature}°C</h2>
+        <h1>{temperature}°C</h1>
         <img
           src={`http://openweathermap.org/img/wn/${image}@2x.png`}
           alt="weather"

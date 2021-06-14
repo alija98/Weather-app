@@ -51,7 +51,7 @@ const afterTomorrow = new Date(today);
 afterTomorrow.setDate(afterTomorrow.getDate() + 2);
 
 function App() {
-  const [searchTerm, setSearchTerm] = useState("Mostar");
+  const [searchTerm, setSearchTerm] = useState("");
   const [cityName, setCityName] = useState("");
   const [temperatureToday, setTemperatureToday] = useState("");
   const [temperatureTomorrow, setTemperatureTomorrow] = useState("");
@@ -64,7 +64,7 @@ function App() {
   const [imageAfterTomorrow, setImageAfterTomorrow] = useState("");
   //fetching data for tomorrow and after tomorrov
   function get5DayData() {
-    const search = searchTerm ? searchTerm : "a";
+    const search = searchTerm ? searchTerm : "Mostar";
     fetch(`${api.base_5_day}${search}&units=metric&APPID=${api.key}`)
       .then((response) => response.json())
       .then((data) => {
@@ -82,7 +82,7 @@ function App() {
   }
   //data for today
   function getTodayData() {
-    const search = searchTerm ? searchTerm : "a";
+    const search = searchTerm ? searchTerm : "Mostar";
     fetch(`${api.base_today}${search}&units=metric&APPID=${api.key}`)
       .then((response) => response.json())
       .then((data) => {
@@ -149,7 +149,7 @@ function App() {
             FetchData();
           }}
         >
-          Search the City
+          Search
         </button>
       </form>
     </section>
