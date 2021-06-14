@@ -1,4 +1,4 @@
-In progress.
+Live demo: https://weather-app-alija98.vercel.app/
 
 # Getting Started with Create React App
 
